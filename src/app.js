@@ -9,7 +9,7 @@ const app = express();
 
 // Set up view engine and parsers
 app.set('view engine', 'pug');
-app.set('views', path.join(__dirname, '..', 'views'));
+app.set('views', path.join(__dirname, '..', 'public'));
 
 // For parsing application/json
 app.use(bodyParser.json());
