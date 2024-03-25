@@ -3,7 +3,7 @@ const { google } = require("googleapis");
 const oauth2Client = new google.auth.OAuth2(
   process.env.CLIENT_ID,
   process.env.CLIENT_SECRET,
-  "http://localhost:3000/oauth2callback",
+  process.env.SERVER_URL,
 );
 const scopes = ["https://www.googleapis.com/auth/youtube.force-ssl"];
 const url = oauth2Client.generateAuthUrl({
@@ -26,7 +26,7 @@ async function authToken(req, res, next) {
   try {
     const accessToken = req.cookies.ytAccessToken;
     const refreshToken = req.cookies.ytRefreshToken;
-    console.log("line",accessToken,refreshAccessToken)
+    console.log("line AUTH TOKEN GENERATED")
     if (!accessToken && refreshToken) {
       const newAccessToken = await refreshAccessToken(refreshToken);
       res.cookie("ytAccessToken", newAccessToken, {
