@@ -1,0 +1,36 @@
+doctype html
+html(lang="en")
+  head
+    title Commentify - Comment Bot
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css")
+  body
+    include includes/nav.pug
+    .container.mt-5
+      include includes/auth.pug
+      .row
+        .col-md-6
+           if playlists && playlists.length > 0
+            h3 Post Comment on Entire Playlist
+            br
+            form#CommentForm(method='post', action='/playlist/comment')
+              .form-group
+                h5 
+                  label(for="text") Select a Playlist
+                each playlist in playlists
+                  .form-group
+                    .form-check
+                      input(type='checkbox', name='playlist', id=playlist.id, value=playlist.id)
+                      label(for=playlist.id)
+                        | &nbsp; #{playlist.title}
+                      
+              .form-group
+                h5 
+                  label(for="text") Comment Text
+                textarea#text.form-control(rows="3", placeholder="Write your comment here...", name="text", required)
+              button.btn.btn-success(type="submit") Post Comment
+      else
+        p No playlists found.
+
+
