@@ -1,0 +1,23 @@
+{
+    
+  "name": "commentify",
+  "version": 2,
+  "public": true,
+  "builds": [
+    {
+      "src": "index.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "views/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/app.js"
+    }
+    
+  ]
+}
