@@ -9,7 +9,7 @@ const app = express();
 
 // Set up view engine and parsers
 app.set('view engine', 'pug');
-app.set('public', path.join(__dirname, '..', 'public'));
+app.set('views', path.join(__dirname, '..', 'views'));
 
 // For parsing application/json
 app.use(bodyParser.json());
@@ -18,7 +18,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
-
+// Serve static files from the 'public' directory
+app.use(express.static(path.join(__dirname, '..', 'public')));
 // Use routes
 app.use(youtubeRoutes);
 
