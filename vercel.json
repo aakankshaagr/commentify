@@ -1,23 +1,22 @@
 {
-    
-  "name": "commentify",
   "version": 2,
-  "public": true,
   "builds": [
     {
-      "src": "index.js",
-      "use": "@vercel/node"
-    },
-    {
-      "src": "views/**",
-      "use": "@vercel/static"
+      "src": "src/app.js",
+      "use": "@now/node",
+      "config": {
+        "maxLambdaSize": "15mb"
+      }
     }
   ],
   "routes": [
     {
+      "src": "/views/static/(.*)",
+      "dest": "/public/$1"
+    },
+    {
       "src": "/(.*)",
-      "dest": "/app.js"
+      "dest": "/src/app.js"
     }
-    
   ]
 }
