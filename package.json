@@ -1,0 +1,28 @@
+{
+  "name": "commentify",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aakankshaagr/commentify.git"
+  },
+  "keywords": [
+    "youtube",
+    "comment",
+    "bot",
+    "api"
+  ],
+  "author": "aakanksha agarawal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aakankshaagr/commentify/issues"
+  },
+  "homepage": "https://github.com/aakankshaagr/commentify#readme"
+}
