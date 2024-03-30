@@ -21,7 +21,7 @@ html(lang="en")
                   each playlist in playlists
                     .form-group
                       .form-check
-                        input(type='checkbox', name='playlist', id=playlist.id, value=playlist.id)
+                        input(type='radio', name='playlistId', id=playlist.id, value=playlist.id)
                         label(for=playlist.id)
                           | &nbsp; #{playlist.title}
 
